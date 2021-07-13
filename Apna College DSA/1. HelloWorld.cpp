@@ -1,5 +1,5 @@
-//Author: Ketan Prakash, Date:
-//Program to 
+//Author: Ketan Prakash, Date: 2021-07-13
+//Program to print Hello World
 #include <iostream> 
 using namespace std; 
 
