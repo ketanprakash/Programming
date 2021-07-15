@@ -1,1 +1,2 @@
-print("Hello World")
+x = "Ketan"
+print(x[::-1])
