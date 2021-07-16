@@ -3,9 +3,8 @@
 #include <iostream> 
 using namespace std; 
 
-int* QUEUE = new int[20];
 
 int main(){
-
+    
     return 0;
 }
