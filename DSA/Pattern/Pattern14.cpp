@@ -9,7 +9,7 @@ int main(){
     for (int i = 1; i <= rows; i++){
         for (int j = 1; j <= rows; j++){
             if (j == rows - i + 1) cout << "*" << " ";
-            else cout << " " << ' ';
+            else cout << " " << " ";
         }
         for (int k = 2; k <= i; k++){
             if (k == i) cout << "*" << " ";
