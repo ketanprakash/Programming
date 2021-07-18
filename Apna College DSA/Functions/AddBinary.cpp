@@ -6,11 +6,11 @@ using namespace std;
 string AddBinary(string binary1, string binary2){
     int carry = 0;
     string binarySum = "";
-    int time = 32 - binary1.size();
+    int time = 128 - binary1.size();
     for (int i = 0; i < time; i++){
         binary1 = "0" + binary1;
     }
-    int time1 =  32 - binary2.size(); 
+    int time1 =  128 - binary2.size(); 
     for (int i = 0; i < time1; i++){
         binary2 = "0" + binary2;
     }
