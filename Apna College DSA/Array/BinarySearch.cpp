@@ -1,7 +1,6 @@
 //Author: Ketan Prakash, Date:
 //Program for binary search
 #include <iostream> 
-#include <algorithm>
 using namespace std; 
 
 bool binary_search(int arr[], int s, int e, int key){
