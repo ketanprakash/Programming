@@ -15,18 +15,20 @@ bool binary_search(int arr[], int s, int e, int key){
 
 unsigned int lower_bound(int arr[], int s, int e, int key){
     int m;
+    bool lastFlag = false;
+    if (arr[e] < key) lastFlag = true;
     while (s < e){
         m = s + (e - s)/2;
         if (key <= arr[m]) e = m;
         else s = m + 1;
     }
-    return s;
+    return lastFlag ? s + 1 : s;
 }
 
 unsigned int upper_bound(int arr[], int s, int e, int key){
     int m;
     bool lastFlag = false;
-    if (arr[e] == key) lastFlag = true;
+    if (arr[e] <= key) lastFlag = true;
     while (s < e){
         m = s + (e - s)/2;
         if (key < arr[m]) e = m;
