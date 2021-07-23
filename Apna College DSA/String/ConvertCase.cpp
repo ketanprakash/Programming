@@ -1,6 +1,7 @@
 //Author: Ketan Prakash, Date:
 //Program to change case 
 #include <iostream> 
+#include <algorithm>
 using namespace std; 
 
 string lowerToUpper(const string &str){
@@ -28,7 +29,13 @@ string upperToLower(const string &str){
 int main(){
     string str; 
     getline(cin, str);
-    cout << lowerToUpper(str) << endl;
-    cout << upperToLower(str) << endl;
+    // cout << lowerToUpper(str) << endl;
+    // cout << upperToLower(str) << endl;
+
+    //using stl
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    cout << str << endl;
+    transform(str.begin(), str.end(), str.begin(), ::toupper);
+    cout << str << endl;
     return 0;
 }
