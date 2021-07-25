@@ -1,5 +1,5 @@
 //Author: Ketan Prakash, Date:
-//Program to find a subarray with given sum
+//Program to find a subarray with given sum with non negative integers
 #include <iostream> 
 using namespace std; 
 
@@ -25,7 +25,7 @@ int main(){
     int a, b; 
     a = b = 0;
     int currSum = arr[0];
-    while (a <= b && b <= n - 1){
+    while (b <= n - 1){
         if (currSum == givenSum){
             cout << a << " " << b; 
             break;
@@ -36,7 +36,11 @@ int main(){
         }
         else {
             currSum -= arr[a];
-            a++;
+            if (a == b) {
+                a++; b++;
+                currSum = arr[b];
+            }
+            else a++;
         }
     }
     return 0;
