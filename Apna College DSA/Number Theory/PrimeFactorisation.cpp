@@ -1,6 +1,7 @@
 //Author: Ketan Prakash, Date:
 //Program to prime factor using smallest prime factor (SOE)
 #include <iostream>
+#include <cmath>
 #include <vector> 
 using namespace std; 
 
@@ -31,13 +32,31 @@ vector<int> smallestPrimeFactor(int n){
     return spf;
 }
 
+void PrimeFactorization(int n){
+    while (n % 2 == 0){
+        cout << 2 << " ";
+        n /= 2; 
+    }
+    int i = 3; 
+    while (n > 1){
+        if (n % i == 0){
+            cout << i << " ";
+            n /= i; 
+        }
+        else i += 2;
+    }
+
+    if (n > 2) cout << n << " ";
+}
+
 int main(){
     int n; 
     cin >> n; 
-    vector<int> spf = smallestPrimeFactor(n);
-    while(n > 1){
-        cout << spf[n] << ' '; 
-        n = n / spf[n];
-    }
+    // vector<int> spf = smallestPrimeFactor(n);
+    // while(n > 1){
+    //     cout << spf[n] << ' '; 
+    //     n = n / spf[n];
+    // }
+    PrimeFactorization(n);
     return 0;
 }
