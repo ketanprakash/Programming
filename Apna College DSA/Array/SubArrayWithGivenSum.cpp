@@ -5,12 +5,12 @@
 using namespace std; 
 
 int main(){
-    int n;  
-    cin >> n; 
-    int *arr = new int[n];
-    for (int i = 0; i < n; i++) cin >> arr[i];
-    int givenSum; 
-    cin >> givenSum; 
+    // int n;  
+    // cin >> n; 
+    // int *arr = new int[n];
+    // for (int i = 0; i < n; i++) cin >> arr[i];
+    // int givenSum; 
+    // cin >> givenSum; 
     //brute force
     // for (int i = 0; i < n; i++){
     //     int sum = 0; 
@@ -45,21 +45,25 @@ int main(){
     //     }
     // }
     //O(n) using unordered_map
-    unordered_map<int, int> mp;
-    int curr_sum = 0; 
+    int n; 
+    cin >> n; 
+    int* arr = new int[n];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    int key; 
+    cin >> key;
+    unordered_map<int, int> m;
+    int curr_sum = 0;
     for (int i = 0; i < n; i++){
         curr_sum += arr[i];
-        if (curr_sum == givenSum){
+        if (curr_sum == key) {
             cout << 0 << " " << i << endl;
-            return 0;
+            break;
         }
-
-        if (mp.find(curr_sum - givenSum) != mp.end()){
-            cout << mp[curr_sum - givenSum] + 1 << " " << i << endl;
-            return 0;
+        if (m.find(curr_sum - key) != m.end()){
+            cout << m[curr_sum - key] + 1 << " " << i << endl;
+            break;
         }
-
-        mp[curr_sum] = i;
+        m[curr_sum] = i;
     }
     return 0;
 }
