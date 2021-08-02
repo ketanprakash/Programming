@@ -1,65 +1,37 @@
-//Author: Ketan Prakash, Date:
-//Program to prime factor using smallest prime factor (SOE)
-#include <iostream>
-#include <cmath>
-#include <vector> 
-#define int long long int
-using namespace std; 
+#include <bits/stdc++.h>  
+#define int long long 
+#define uint unsigned long long
+#define n 9999999
+using namespace std;
 
-vector<int> smallestPrimeFactor(int n){
-    vector<int> spf(n + 1, 0);
-    vector<bool> primes(n + 1);
-    for (int i = 1; i < n + 1; i++){
+vector<int> smallestprime(){
+    vector<bool> isprime(n + 1, 1);
+    vector<int> spf(n + 1);
+    for (uint i = 0; i <= n; i++){
         spf[i] = i;
     }
-    for (int i = 0; i < n + 1; i++){
-        primes[i] = 1;
-    }
-    int i = 2;  
-    primes[0] = primes[1] = 0;
-    while (i <= n){
-        if (!primes[i]) {
-            i++;
-            continue;
-        }
-        for (int j = i * i; j <= n; j += i){
-            if(primes[j]) {
-                primes[j] = 0;
-                spf[j] = i; 
+    isprime[0] = isprime[1] = 0;
+    for (uint i = 2; i <= n; i++){
+        if (isprime[i]){
+            for (uint j = i * i; j <= n; j += i){
+                if (isprime[j]){
+                    isprime[j] = 0;
+                    spf[j] = i;
+                }
             }
         }
-        i++;
     }
     return spf;
 }
 
-void PrimeFactorization(int n){
-    while (n % 2 == 0){
-        cout << 2 << " ";
-        n /= 2; 
-    }
-    int i = 3; 
-    while (n > 1){
-        if (n % i == 0){
-            cout << i << " ";
-            n /= i; 
-        }
-        else i += 2;
-    }
-
-    if (n > 2) cout << n << " ";
-}
-
 int32_t main(){
-    int n; 
-    // n = __LONG_LONG_MAX__;
-    cin >> n; 
-    // cin >> n; 
-    // vector<int> spf = smallestPrimeFactor(n);
-    // while(n > 1){
-    //     cout << spf[n] << ' '; 
-    //     n = n / spf[n];
-    // }
-    PrimeFactorization(n);
+    vector<int> spf = smallestprime();
+    uint x; 
+    cin >> x; 
+    while (x != 1){
+        cout << spf[x] << " ";
+        x /= spf[x];
+    }
+    cout << endl;
     return 0;
 }

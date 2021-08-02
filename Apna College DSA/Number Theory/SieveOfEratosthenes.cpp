@@ -1,31 +1,33 @@
-//Author: Ketan Prakash, Date:
-//Program to write sieve of erotesthenes function
-#include <iostream> 
-using namespace std; 
+#include <bits/stdc++.h>  
+#define int long long 
+#define uint unsigned long long
+#define n 999999
+using namespace std;
 
-void primeSieve(int n){
-    int *primes = new int[n + 1];
-    primes[0] = primes[1] = 0;
-    for (int i = 2; i < n; i++){
-        primes[i] = 1;
-    }
-    long long int i = 2; 
-    while(i <= n){
-        if (primes[i]){
-            for (long long int j = i * i; j <= n; j += i){
-                if (primes[j]) primes[j] = 0;
+vector<bool> sieve(){
+    vector<bool> isprime(n + 1, 1);
+    isprime[0] = isprime[1] = 0;
+    for (uint i = 2; i <= n; i++){
+        if (isprime[i]){
+            for (uint j = i * i; j <= n; j += i){
+                if (isprime[j]){
+                    isprime[j] = 0;
+                }
             }
         }
-        i++;
     }
-    for (int i = 2; i <= n; i++){
-        if (primes[i]) cout << i << " ";
-    }
+    return isprime;
 }
 
-int main(){
-    int n; 
-    cin >> n;
-    primeSieve(n);
+int32_t main(){
+    vector<bool> isprime = sieve();
+    int t; 
+    cin >> t;
+    uint x; 
+    cin >> x; 
+    for (uint i = 0; i <= x; i++){
+        if (isprime[i]) cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
