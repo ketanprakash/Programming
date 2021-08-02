@@ -25,6 +25,21 @@ vector<int> smallestprime(){
     return spf;
 }
 
+void PrimeFactorization(uint x){
+    while (x % 2 == 0){
+        cout << 2 << " ";
+        x /= 2; 
+    }
+    for (uint i = 3; i <= sqrt(x); i += 2){
+        while (x % i == 0){
+            cout << i << " ";
+            x = x / i;
+        }
+    }
+
+    if (x > 2) cout << x << " ";
+}
+
 int32_t main(){
     //smallest prime factor method o(logn) with o(Max ^ 2) preprocessing
     // vector<int> spf = smallestprime();
@@ -35,6 +50,9 @@ int32_t main(){
     //     x /= spf[x];
     // }
     //O(sqrt(n)) method
+    int x; 
+    cin >> x; 
+    PrimeFactorization(x);
     cout << endl;
     return 0;
 }
