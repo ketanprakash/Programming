@@ -4,6 +4,7 @@
 #define n 9999999
 using namespace std;
 
+//find smallest prime factor of a number using sieve of eratosthenes
 vector<int> smallestprime(){
     vector<bool> isprime(n + 1, 1);
     vector<int> spf(n + 1);
@@ -25,13 +26,15 @@ vector<int> smallestprime(){
 }
 
 int32_t main(){
-    vector<int> spf = smallestprime();
-    uint x; 
-    cin >> x; 
-    while (x != 1){
-        cout << spf[x] << " ";
-        x /= spf[x];
-    }
+    //smallest prime factor method o(logn) with o(Max ^ 2) preprocessing
+    // vector<int> spf = smallestprime();
+    // uint x; 
+    // cin >> x; 
+    // while (x != 1){
+    //     cout << spf[x] << " ";
+    //     x /= spf[x];
+    // }
+    //O(sqrt(n)) method
     cout << endl;
     return 0;
 }
