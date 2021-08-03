@@ -25,19 +25,26 @@ vector<int> smallestprime(){
     return spf;
 }
 
-void PrimeFactorization(uint x){
+vector<uint> PrimeFactorization(uint x){
+    vector<uint> u;  
     while (x % 2 == 0){
-        cout << 2 << " ";
+        // cout << 2 << " ";
+        u.push_back(2);
         x /= 2; 
     }
     for (uint i = 3; i <= sqrt(x); i += 2){
         while (x % i == 0){
-            cout << i << " ";
+            // cout << i << " ";
+            u.push_back(i);
             x = x / i;
         }
     }
 
-    if (x > 2) cout << x << " ";
+    if (x > 2) {
+        // cout << x << " ";
+        u.push_back(x);
+    }
+    return u;
 }
 
 int32_t main(){
@@ -52,7 +59,10 @@ int32_t main(){
     //O(sqrt(n)) method
     int x; 
     cin >> x; 
-    PrimeFactorization(x);
+    vector<uint> primeFactors = PrimeFactorization(x);
+    for (auto i : primeFactors){
+        cout << i << " ";
+    }
     cout << endl;
     return 0;
 }
