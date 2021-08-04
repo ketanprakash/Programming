@@ -24,6 +24,15 @@ void rev(string &s){
     }
 }
 
+//print string in reverse
+void revprint(string s){
+    if (s.size() == 0){
+        return;
+    }
+    revprint(s.substr(1));
+    cout << s[0];
+}
+
 int32_t main(){
     string str;
     cin >> ws; 
@@ -31,7 +40,7 @@ int32_t main(){
     // string s = reverseStr(str);
     // string s = reverseStrR(str, "");
     // cout << s << endl;
-    rev(str);
-    cout << str << endl;
+    // rev(str);
+    revprint(str);
     return 0;
 }
