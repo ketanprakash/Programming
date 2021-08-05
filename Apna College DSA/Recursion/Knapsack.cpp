@@ -10,10 +10,17 @@ int knapsack(int wt[], int val[], int n, int W){
     return knap;
 }
 int32_t main(){
-    int wt[3] = {10, 20, 30};
-    int val[3] = {100, 50, 150};
-    int n = 3;
-    int W = 50;
+    int n;
+    cin >> n; 
+    int *wt = new int[n];
+    int *val = new int[n];
+    cout << "Enter Weight of all elements: " << endl;
+    for (int i = 0; i < n; i++) cin >> wt[i];
+    cout << "Enter value of all elements: " << endl;
+    for (int i = 0; i < n; i++) cin >> val[i];
+    int W;
+    cout << "Enter Knapsack Capacity: " << endl;
+    cin >> W;
     cout << knapsack(wt, val, n, W) << endl;
     return 0;
 }
