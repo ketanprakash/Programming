@@ -130,18 +130,3 @@ class linked_list{
         cout << "NULL" << endl;
     }
 };
-int32_t main(){
-    linked_list l; 
-    int n; 
-    cin >> n; 
-    int data;
-    for (int i = 0; i < n; i++){
-        cin >> data; 
-        l.insertTail(data);
-    }
-    l.insert(3, 10);
-    l.display();
-    l.remove(3);
-    l.display();
-    return 0;
-}
