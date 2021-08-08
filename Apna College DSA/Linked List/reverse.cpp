@@ -17,6 +17,21 @@ void reverse(linked_list &list){
     list.head = prev;
 }
 
+node* rev(node* head, node* prev = NULL){
+    if (head -> next == NULL) {
+        head -> next = prev;
+        return head;
+    }
+    node* temp = rev(head -> next, head);
+    head -> next = prev;
+    head = temp;
+    return head;
+}
+
+void reverseR(linked_list &list){
+    list.head = rev(list.head);
+}
+
 int32_t main(){
     linked_list l; 
     int n; 
@@ -26,7 +41,7 @@ int32_t main(){
         cin >> t; 
         l.insertTail(t);
     }
-    reverse(l);
+    reverseR(l);
     l.display();
     return 0;
 }
