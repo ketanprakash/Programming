@@ -22,7 +22,45 @@ class linked_list{
         head = NULL;
         size = 0;
     }
+    linked_list(int *arr, int n){
+        head = new node(arr[0]);
+        node *temp = head;
+        for (int i = 1; i < n; i++){
+            temp -> next = new node(arr[i]);
+            temp = temp -> next;
+        }
+        size = n;
+    }
+    linked_list(node* head){
+        this -> head = head; 
+        node* temp = head; size = 0;
+        while (temp != NULL){
+            temp = temp -> next;
+            size++;
+        }
+    }
 
+    void insert(int *arr, int n){
+        if (head == NULL){
+            head = new node(arr[0]);
+            node *temp = head;
+            for (int i = 1; i < n; i++){
+                temp -> next = new node(arr[i]);
+                temp = temp -> next;
+            }
+        }
+        else {
+            node *temp = head; 
+            while (temp -> next != NULL){
+                temp = temp -> next;
+            }
+            for (int i = 0; i < n; i++){
+                temp -> next = new node(arr[i]);
+                temp = temp -> next;
+            }
+        }
+        size += n;
+    }
     void insertHead(int data){
         node *newnode = new node(data);
         newnode -> next = head;
