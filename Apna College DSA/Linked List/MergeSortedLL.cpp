@@ -21,14 +21,14 @@ linked_list mergeWithNewLL(linked_list list1, linked_list list2){
     temp = list.head;
     while (temp1 != NULL && temp2 != NULL){
         if (temp1 -> data < temp2 -> data){
-            temp -> next = new node(temp1 -> data);
-            temp = temp -> next;
-            temp1 = temp1 -> next;
+        temp -> next = new node(temp1 -> data);
+        temp = temp -> next;
+        temp1 = temp1 -> next;
         }
         else {
-            temp -> next = new node(temp2 -> data);
-            temp = temp -> next;
-            temp2 = temp2 -> next;
+        temp -> next = new node(temp2 -> data);
+        temp = temp -> next;
+        temp2 = temp2 -> next;
         }
     }
     while (temp1 != NULL){
@@ -49,16 +49,16 @@ linked_list merge(linked_list &l1, linked_list &l2){
     node *temp = dummy, *temp1 = l1.head, *temp2 = l2.head;
     while (temp1 != NULL && temp2 != NULL){
         if (temp1 -> data < temp2 -> data){
-            temp -> next = temp1;
-            temp1 = temp1 -> next;
-            temp -> next -> next = NULL;
-            temp = temp -> next;
+        temp -> next = temp1;
+        temp1 = temp1 -> next;
+        temp -> next -> next = NULL;
+        temp = temp -> next;
         }
         else {
-            temp -> next = temp2;
-            temp2 = temp2 -> next;
-            temp -> next -> next = NULL;
-            temp = temp -> next;
+        temp -> next = temp2;
+        temp2 = temp2 -> next;
+        temp -> next -> next = NULL;
+        temp = temp -> next;
         }
     }
     while (temp1 != NULL){
