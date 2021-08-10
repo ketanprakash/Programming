@@ -56,21 +56,21 @@ using namespace std;
 
 //o(n)
 bool pairSum(int *arr, int n, int k){
-    unordered_map<int, bool> m;
-    for (int i = 0; i < n; i++){
-        if (m[k - arr[i]]) return true;
-        else m[arr[i]] = 1; 
-    }
-    return false;
+  unordered_map<int, bool> m;
+  for (int i = 0; i < n; i++){
+    if (m[k - arr[i]]) return true;
+    else m[arr[i]] = 1; 
+  }
+  return false;
 }
 
 int main(){
-    int n; 
-    cin >> n; 
-    int *arr = new int[n];
-    for (int i = 0; i < n; i++) cin >> arr[i];
-    int k; 
-    cin >> k;
-    cout << pairSum(arr, n, k) << endl;
-    return 0;
+  int n; 
+  cin >> n; 
+  int *arr = new int[n];
+  for (int i = 0; i < n; i++) cin >> arr[i];
+  int k; 
+  cin >> k;
+  cout << pairSum(arr, n, k) << endl;
+  return 0;
 }

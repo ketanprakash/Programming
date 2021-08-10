@@ -4,11 +4,11 @@
 using namespace std; 
 
 int sum(int n){
-    if (n == 0){
-        return 0;
-    }
-    int prevsum = sum(n - 1);
-    return prevsum + n;
+  if (n == 0){
+    return 0;
+  }
+  int prevsum = sum(n - 1);
+  return prevsum + n;
 }
 
 // int sum(int n){
@@ -16,8 +16,8 @@ int sum(int n){
 // }
 
 int32_t main(){
-    int x; 
-    cin >> x; 
-    cout << sum(x) << endl;
-    return 0;
+  int x; 
+  cin >> x; 
+  cout << sum(x) << endl;
+  return 0;
 }

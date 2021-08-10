@@ -4,14 +4,14 @@
 using namespace std; 
 
 int main(){
-    int n; 
-    cin >> n; 
-    int count = 0; 
-    while (n){
-        n = n & (n - 1);
-        count++;
-    }
-    cout << count;
-    cout << '\n';
-    return 0;
+  int n; 
+  cin >> n; 
+  int count = 0; 
+  while (n){
+    n = n & (n - 1);
+    count++;
+  }
+  cout << count;
+  cout << '\n';
+  return 0;
 }

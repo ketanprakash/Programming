@@ -4,43 +4,43 @@
 using namespace std; 
 
 string reverseStr(string s){
-    for (int i = 0, j = s.size() - 1; i < j; i++, j--){
-        swap(s[i], s[j]);
-    }
-    return s;
+  for (int i = 0, j = s.size() - 1; i < j; i++, j--){
+    swap(s[i], s[j]);
+  }
+  return s;
 }
 
 string reverseStrR(string s, string ans){
-    if (s.size() == 0){
-        return ans;
-    }
-    ans.insert(ans.begin(), s[0]);
-    return reverseStrR(s.substr(1), ans);
+  if (s.size() == 0){
+    return ans;
+  }
+  ans.insert(ans.begin(), s[0]);
+  return reverseStrR(s.substr(1), ans);
 }
 
 void rev(string &s){
-    for (int i = 0, j = s.size() - 1; i < j; i++, j--){
-        swap(s[i], s[j]);
-    }
+  for (int i = 0, j = s.size() - 1; i < j; i++, j--){
+    swap(s[i], s[j]);
+  }
 }
 
 //print string in reverse
 void revprint(string s){
-    if (s.size() == 0){
-        return;
-    }
-    revprint(s.substr(1));
-    cout << s[0];
+  if (s.size() == 0){
+    return;
+  }
+  revprint(s.substr(1));
+  cout << s[0];
 }
 
 int32_t main(){
-    string str;
-    cin >> ws; 
-    getline(cin, str);
-    // string s = reverseStr(str);
-    // string s = reverseStrR(str, "");
-    // cout << s << endl;
-    // rev(str);
-    revprint(str);
-    return 0;
+  string str;
+  cin >> ws; 
+  getline(cin, str);
+  // string s = reverseStr(str);
+  // string s = reverseStrR(str, "");
+  // cout << s << endl;
+  // rev(str);
+  revprint(str);
+  return 0;
 }

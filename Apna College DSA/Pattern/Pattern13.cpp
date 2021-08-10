@@ -4,27 +4,27 @@
 using namespace std; 
 
 int main(){
-    int rows; 
-    cin >> rows;
-    for (int i = 1; i <= rows; i++){
-        for (int j = 1; j <= rows; j++){
-            if (j <= rows - i) cout << " " << " ";
-            else cout << "*" << " ";
-        }
-        for (int k = 2; k <= i; k++){
-            cout << "*" << " ";
-        }
-        cout << endl;
+  int rows; 
+  cin >> rows;
+  for (int i = 1; i <= rows; i++){
+    for (int j = 1; j <= rows; j++){
+      if (j <= rows - i) cout << " " << " ";
+      else cout << "*" << " ";
     }
-    for (int i = rows; i >= 1; i--){
-        for (int j = 1; j <= rows; j++){
-            if (j <= rows - i) cout << " " << " ";
-            else cout << "*" << " ";
-        }
-        for (int k = 2; k <= i; k++){
-            cout << "*" << " ";
-        }
-        cout << endl;
+    for (int k = 2; k <= i; k++){
+      cout << "*" << " ";
     }
-    return 0;
+    cout << endl;
+  }
+  for (int i = rows; i >= 1; i--){
+    for (int j = 1; j <= rows; j++){
+      if (j <= rows - i) cout << " " << " ";
+      else cout << "*" << " ";
+    }
+    for (int k = 2; k <= i; k++){
+      cout << "*" << " ";
+    }
+    cout << endl;
+  }
+  return 0;
 }

@@ -4,15 +4,15 @@
 using namespace std; 
 
 uint factorial(uint n){
-    if (n == 0){
-        return 1;
-    }
-    return factorial(n - 1) * n;
+  if (n == 0){
+    return 1;
+  }
+  return factorial(n - 1) * n;
 }
 
 int32_t main(){
-    uint x; 
-    cin >> x; 
-    cout << factorial(x) << endl;
-    return 0;
+  uint x; 
+  cin >> x; 
+  cout << factorial(x) << endl;
+  return 0;
 }

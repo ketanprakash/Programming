@@ -5,31 +5,31 @@
 using namespace std; 
 
 int kadane(int *arr, int n){
-    int sum = 0, maxSum = 0;
-    for (int i = 0; i < n; i++){
-        sum += arr[i];
-        if (sum < 0) sum = 0; 
-        maxSum = max(maxSum, sum);
-    }
-    return maxSum;
+  int sum = 0, maxSum = 0;
+  for (int i = 0; i < n; i++){
+    sum += arr[i];
+    if (sum < 0) sum = 0; 
+    maxSum = max(maxSum, sum);
+  }
+  return maxSum;
 }
 
 int main(){
-    int n; 
-    cin >> n; 
-    int *arr = new int[n];
-    int Sum = 0; 
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-        Sum += arr[i];
-    }
-    int maxLinearSum = kadane(arr, n);
-    for (int i = 0; i < n; i++){
-        arr[i] = - arr[i];
-    }
-    int maxCircularSum = Sum + kadane(arr, n);
-    cout << max(maxLinearSum, maxCircularSum) << endl;
-    return 0;
+  int n; 
+  cin >> n; 
+  int *arr = new int[n];
+  int Sum = 0; 
+  for (int i = 0; i < n; i++) {
+    cin >> arr[i];
+    Sum += arr[i];
+  }
+  int maxLinearSum = kadane(arr, n);
+  for (int i = 0; i < n; i++){
+    arr[i] = - arr[i];
+  }
+  int maxCircularSum = Sum + kadane(arr, n);
+  cout << max(maxLinearSum, maxCircularSum) << endl;
+  return 0;
 }
 /*
 1 23 -2 3 -23 22
