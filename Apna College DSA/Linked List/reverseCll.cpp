@@ -1,4 +1,4 @@
-//Program to 
+//Program to reverse a circular linked list
 #include <bits/stdc++.h>  
 #include "cll.cpp"
 #define int long long 
