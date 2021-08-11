@@ -18,15 +18,15 @@ class stackArr{
     capacity = size;
   }
 
-  bool empty(){
+  bool empty() const{
     return t == -1;
   }
 
-  T size(){
+  T size() const{
     return t + 1;
   }
 
-  bool full(){
+  bool full() const{
     return t == capacity - 1;
   }
 
@@ -51,12 +51,15 @@ class stackArr{
     if (!empty()) t--;
   }
 
-  T top(){
+  T top() const{
     if (!empty()) return STACK[t];
-    return -1;
+    else {
+      cout << "error, no items in the stack" << endl;
+      exit(0);
+    }
   }
 
-  void display(){
+  void display() const{
     for (int i = t; i >= 0; i--){
       cout << STACK[i] << endl;
     }
