@@ -61,12 +61,64 @@ string infixToPrefix(string &infix){
   return rev(infixToPostfix(rev(infix)));
 }
 
+string postfixToInfix(string &postfix){
+  stackArr<string> st;
+  string a, b, s, s1;
+  int n = postfix.size();
+  for (int i = 0; i < n; i++){
+    if (postfix[i] == ' '){
+      continue;
+    }
+    else if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '/' || postfix[i] == '*'){
+      b = st.top(); st.pop(); 
+      a = st.top(); st.pop();
+      s = "(" + a + postfix[i] + b + ")";
+      st.push(s);
+    }
+    else {
+      s1 = "";
+      s1.push_back(postfix[i]);
+      st.push(s1);
+    }
+  }
+  s = st.top();
+  st.pop(); 
+  return s;
+}
+
+string prefixToInfix(string &postfix){
+  stackArr<string> st;
+  string a, b, s, s1;
+  int n = postfix.size();
+  for (int i = n - 1; i >= 0; i--){
+    if (postfix[i] == ' '){
+      continue;
+    }
+    else if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '/' || postfix[i] == '*'){
+      a = st.top(); st.pop(); 
+      b = st.top(); st.pop();
+      s = "(" + a + postfix[i] + b + ")";
+      st.push(s);
+    }
+    else {
+      s1 = "";
+      s1.push_back(postfix[i]);
+      st.push(s1);
+    }
+  }
+  s = st.top();
+  st.pop(); 
+  return s;
+}
+
 int32_t main(){
   m['+'] = m['-'] = 1; m['*'] = m['/'] = 2;
   string prefix, infix, postfix;
-  getline(cin, infix);
-  prefix = infixToPrefix(infix);
-  cout << prefix << endl;
+  getline(cin, prefix);
+  // postfix = infixToPostfix(infix);
+  // cout << postfix << endl;
+  infix = prefixToInfix(prefix);
+  cout << infix << endl;
   return 0;
 }
 
