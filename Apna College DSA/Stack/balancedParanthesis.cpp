@@ -11,11 +11,17 @@ bool checkBalanced(string &s){
   stackArr<char> stack;
   for (int i = 0; i < n; i++){
     if (s[i] == ' ') continue;
-    if (s[i] == '('){
+    if (s[i] == '(' || s[i] == '{' || s[i] == '['){
       stack.push(s[i]);
     }
     else {
-      if ((!stack.empty()) && stack.top() == '('){
+      if ((!stack.empty()) && s[i] == ')' && stack.top() == '('){
+        stack.pop();
+      }
+      else if ((!stack.empty()) && s[i] == '}' && stack.top() == '{'){
+        stack.pop();
+      }
+      else if ((!stack.empty()) && s[i] == ']' && stack.top() == '['){
         stack.pop();
       }
       else{
