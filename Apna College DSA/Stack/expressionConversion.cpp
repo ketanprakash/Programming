@@ -114,10 +114,10 @@ string prefixToInfix(string &postfix){
 int32_t main(){
   m['+'] = m['-'] = 1; m['*'] = m['/'] = 2;
   string prefix, infix, postfix;
-  getline(cin, prefix);
+  getline(cin, postfix);
   // postfix = infixToPostfix(infix);
   // cout << postfix << endl;
-  infix = prefixToInfix(prefix);
+  infix = postfixToInfix(postfix);
   cout << infix << endl;
   return 0;
 }
