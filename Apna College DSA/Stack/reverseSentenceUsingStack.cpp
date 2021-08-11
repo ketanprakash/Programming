@@ -9,19 +9,19 @@ using namespace std;
 int32_t main(){
   string sentence; 
   getline(cin, sentence);
-  string x; 
+  string word; 
   stackArr<string> s; 
   int n = sentence.size();
   for (int i = 0; i < n; i++){
     if (sentence[i] == ' '){
-      s.push(x);
-      x = "";
+      s.push(word);
+      word = "";
     }
     else {
-      x.push_back(sentence[i]);
+      word.push_back(sentence[i]);
     }
   }
-  s.push(x);
+  s.push(word);
   sentence = "";
   while (!s.empty()){
     if (sentence != "") sentence.push_back(' ');
