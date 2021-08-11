@@ -15,8 +15,12 @@ bool checkBalanced(string &s){
       stack.push(s[i]);
     }
     else {
-      if ((!stack.empty()) && stack.top() == '(') stack.pop();
-      else return false;
+      if ((!stack.empty()) && stack.top() == '('){
+        stack.pop();
+      }
+      else{
+        return false;
+      } 
     }
   }
   return (stack.empty());
