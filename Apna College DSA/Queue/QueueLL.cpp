@@ -51,19 +51,19 @@ class queueLL{
   }
 };
 
-int32_t main(){
-  queueLL q;
-  int n, x; 
-  cin >> n;
-  for (int i = 0; i < n; i++){
-    cin >> x; 
-    q.enqueue(x);
-  }
+// int32_t main(){
+//   queueLL q;
+//   int n, x; 
+//   cin >> n;
+//   for (int i = 0; i < n; i++){
+//     cin >> x; 
+//     q.enqueue(x);
+//   }
 
-  while (!q.empty()){
-    cout << q.front() << " ";
-    q.dequeue();
-  }
-  cout << endl;
-  return 0;
-}
+//   while (!q.empty()){
+//     cout << q.front() << " ";
+//     q.dequeue();
+//   }
+//   cout << endl;
+//   return 0;
+// }
