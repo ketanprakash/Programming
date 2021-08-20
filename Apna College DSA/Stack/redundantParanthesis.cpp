@@ -5,7 +5,7 @@
 #define endl '\n'
 using namespace std; 
 
-bool redundant(string s){
+bool redundant(const string &s){
   stack<char> st;
   bool flag;
   for (uint i = 0; i < s.size(); i++){
@@ -30,6 +30,6 @@ bool redundant(string s){
 int32_t main(){
   string s; 
   getline(cin, s);
-  cout << (redundant(s) ? "Redundant Parenthesis present": "Redundant Parenthesis not present");
+  cout << (redundant(s) ? "Redundant parenthesis": "No redundant parenthesis");
   return 0;
 }
