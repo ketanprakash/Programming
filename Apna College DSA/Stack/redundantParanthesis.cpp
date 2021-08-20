@@ -9,7 +9,9 @@ bool redundant(string s){
   stack<char> st;
   bool flag;
   for (uint i = 0; i < s.size(); i++){
-    if (s[i] == ' ') continue;
+  if (s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/' || s[i] == '(') {
+      st.push(s[i]);
+    }
     else if (s[i] == ')'){
       flag = 1;
       while (!st.empty() && st.top() != '('){
@@ -20,9 +22,6 @@ bool redundant(string s){
       }
       st.pop();
       if (flag) return 1;
-    }
-    else {
-      st.push(s[i]);
     }
   }
   return 0;
