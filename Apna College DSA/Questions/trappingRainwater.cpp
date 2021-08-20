@@ -12,19 +12,19 @@ int32_t main(){
   for (int i = 0; i < n; i++){
     cin >> v[i];
   }
-  int l = 0, leftMax = v[l], r = n - 1, rightMax = v[r], res = 0;
+  int l = 0, leftMax = INT_MIN, r = n - 1, rightMax = INT_MIN, area = 0;
   while (l <= r){
     if (v[l] <= v[r]){
-      res += leftMax - v[l];
-      l++;
       leftMax = max(leftMax, v[l]);
+      area += leftMax - v[l];
+      l++;
     }
     else {
-      res += rightMax - v[r];
-      r--;
       rightMax = max(rightMax, v[r]);
+      area += rightMax - v[r];
+      r--;
     }
   }
-  cout << res << endl;
+  cout << area << endl;
   return 0;
 }
