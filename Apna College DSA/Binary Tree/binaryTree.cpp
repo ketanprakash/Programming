@@ -48,6 +48,18 @@ class binary_tree{
     cout << root -> data << " ";
   }
 
+  node* search(node* root, int data){
+    if (root == NULL){
+      return root;
+    }
+    if (root -> data == data){
+      return root;
+    }
+    node* leftResult = search(root -> left, data);
+    node* rightResult = search(root -> right, data);
+    return leftResult ? leftResult : rightResult;
+  }
+
   public:
   binary_tree(){
     root = NULL;
@@ -68,6 +80,10 @@ class binary_tree{
       print(root -> right);
       cout << ")";
     }
+  }
+
+  node* search(int data){
+    return search(root, data);
   }
 
   void print(){
