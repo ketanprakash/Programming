@@ -136,19 +136,44 @@ class heap{
   }
 };
 
-// int32_t main(){
-//   heap heap1;
-//   int n; 
-//   cin >> n;
-//   int* arr = new int[n];
-//   for (int i = 0; i < n; i++){
-//     cin >> arr[i];
-//   }
+void heapify(heap &heap1, int *curr){
+  int *largest = curr;
+  if (heap1.left(curr) != NULL && *heap1.left(curr) > *largest) largest = heap1.left(curr);
+  if (heap1.right(curr) != NULL && *heap1.right(curr) > *largest) largest = heap1.right(curr);
 
-//   heapify(heap1, arr, n);
-//   // for (int i = 0; i < n; i++){
-//   //   heap1.insert(arr[i]);
-//   // }
-//   heap1.print();
-//   return 0;
-// }
+  if (*largest != *curr){
+    swap(*largest, *curr);
+    heapify(heap1, largest);
+  }
+}
+
+void buildHeap(heap &heap1, int* arr, int n){
+  delete [] heap1.HEAP;
+  heap1.HEAP = arr;
+  heap1.capacity = n;
+  heap1.heapSize = n;
+  int *curr = NULL;
+  for (int i = n - 1; i >= 0; i--){
+    curr = arr + i;
+    if (heap1.left(curr) != NULL || heap1.right(curr) != NULL){
+      heapify(heap1, curr);
+    }
+  }
+}
+
+int32_t main(){
+  heap heap1;
+  int n; 
+  cin >> n;
+  int* arr = new int[n];
+  for (int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+
+  buildHeap(heap1, arr, n);
+  // for (int i = 0; i < n; i++){
+  //   heap1.insert(arr[i]);
+  // }
+  heap1.print();
+  return 0;
+}
