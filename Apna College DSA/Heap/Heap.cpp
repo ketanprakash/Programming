@@ -160,20 +160,3 @@ void buildHeap(heap &heap1, int* arr, int n){
     }
   }
 }
-
-int32_t main(){
-  heap heap1;
-  int n; 
-  cin >> n;
-  int* arr = new int[n];
-  for (int i = 0; i < n; i++){
-    cin >> arr[i];
-  }
-
-  buildHeap(heap1, arr, n);
-  // for (int i = 0; i < n; i++){
-  //   heap1.insert(arr[i]);
-  // }
-  heap1.print();
-  return 0;
-}
