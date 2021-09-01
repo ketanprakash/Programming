@@ -23,6 +23,9 @@ int32_t main(){
   priority_queue<int, vector<int>, greater<int> > mn; 
   for (int i = 0; i < n; i++){
     cin >> x;
+
+    //insert into mx priority queue, mn priority queue
+
     if (mx.size() == 0 || x < mx.top()){
       mx.push(x);
     }
@@ -33,6 +36,9 @@ int32_t main(){
     else if (mn.size() > mx.size() + 1){
       mx.push(mn.top()); mn.pop();
     }
+
+    //print the median
+
     if (mx.size() > mn.size()){
       cout << mx.top() << endl;
     }
