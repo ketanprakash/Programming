@@ -7,7 +7,12 @@
 using namespace std; 
 
 int32_t main(){
-  unordered_map<int, int> m; 
+  unordered_map<int, int> um; 
+  um[1] = 100;
+  um[200] = 50;
+  um[10] = 40;
+  cout << um[1] << " " << um[200] << " " << um[10] << endl;
+  map<int, int> m;
   m[1] = 100;
   m[200] = 50;
   m[10] = 40;
