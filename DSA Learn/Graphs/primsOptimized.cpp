@@ -11,7 +11,7 @@ int32_t main(){
   vector<pair<int, int> > *adj = new vector<pair<int, int> >[n];
   int u, v, wt;
   for (int i = 0; i < e; i++){
-  cin >> u >> v >> wt;
+    cin >> u >> v >> wt;
     adj[u].push_back({v, wt});
     adj[v].push_back({u, wt});
   }
