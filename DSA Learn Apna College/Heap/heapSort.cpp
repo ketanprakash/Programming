@@ -28,7 +28,7 @@ void heapSort(int* arr, int n){
   }
 
   //converting it back to array by removing items and swapping them
-  //O(nlogn)
+  //O(nlogn)z
   for (int i = n - 1; i >= 0; i--){
     swap(arr[0], arr[i]);
     heapify(arr, i, 0);
